@@ -38,4 +38,6 @@
    
   
   - [Dominic Enriquez](mailto:nickenriquez23@gmail.com)
+  - [Carl Andrei Castillo](mailto:caca.castillo.up@phinmaed.com)
+
  
