@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Library - Sign Up</title>
+    <link rel="stylesheet" href="/assets/css/sign-up.css" />
+    <script src="/assets/js/change-pane.js"></script>
+    <script type="module" src="/src/firebase/firebase-config.js"></script>
+  </head>
+  <body>
+    <div class="sign-up-main-container">
+      <div class="preview-panel staff">
+        <button id="change-user" onclick="changePane()">Switch</button>
+      </div>
+      <div id="staff-sign-up-container">
+        <div style="display: flex">
+          <h1 name="student">Create an Account</h1>
+          <p style="margin: 30px 10px">for Staff</p>
+        </div>
+        <form id="staff-sign-up-form">
+          <input type="text" placeholder="Employee Number" />
+          <input type="text" placeholder="First Name" />
+          <input type="text" placeholder="Middle Name" />
+          <input type="text" placeholder="Last Name" />
+          <input type="text" placeholder="Address" />
+          <div id="second-input">
+            <input type="text" placeholder="Age" />
+            <input type="text" placeholder="Phone Number" />
+            <input type="text" placeholder="" />
+            <input type="text" placeholder="" />
+          </div>
+        </form>
+      </div>
+      <div id="student-sign-up-container">
+        <div style="display: flex">
+          <h1 name="student">Create an Account</h1>
+          <p style="margin: 30px 10px">for Student</p>
+        </div>
+        <form id="student-sign-up-form">
+          <input type="text" placeholder="Student Number" name="student_number" required />
+          <input type="text" placeholder="First Name" name="first_name" required />
+          <input type="text" placeholder="Middle Name" name="middle_name" required />
+          <input type="text" placeholder="Last Name" name="last_name" required />
+          <input type="text" placeholder="Address" name="address" required />
+          <div id="second-input">
+            <input type="text" placeholder="Age" name="age" required />
+            <input type="text" placeholder="Course" name="course" />
+            <input type="text" placeholder="Phone Number" name="phone_number" required />
+            <input type="text" placeholder="Gender" name="gender" required />
+          </div>
+          <input type="submit" value="Next" id="submit-btn" />
+        </form>
+        <form style="display: none" id="student-social">
+          <input type="email" placeholder="Email Address" name="email_address" required />
+          <input type="password" placeholder="Password" name="password" required />
+          <input type="password" placeholder="Confirm Password" name="confirm_password" required />
+          <input type="submit" value="Sign Up" id="submit-btn" />
+        </form>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="/src/firebase/firebase-student-register.js"></script>
+</html>

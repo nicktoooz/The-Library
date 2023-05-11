@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Library</title>
+    <link rel="stylesheet" href="/assets/css/dashboard.css" />
+    <script type="module" src="/src/firebase/firebase-config.js"></script>
+    <script type="module">
+      import { getAuth } from 'https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js';
+      import { app } from '/src/firebase/firebase-config.js';
+      const auth = getAuth(app);
+      auth.onAuthStateChanged((user) => {
+        if (!user) {
+          window.location.replace('/pages/login.html');
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <!-- main-content-start -->
+    <main>
+      <div id="sidebar--block" class="sidebar">
+        <div class="sidebar-top">
+          <div id="navigation-toggle">
+            <img src="/assets/img/dashboard-assets/menu.svg" alt="" />
+          </div>
+        </div>
+        <div class="header__end">
+          <div id="logout-button">
+            <img src="/assets/img/dashboard-assets/log-out.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div id="sidebar--extend" class="sidebar">
+        <div class="sidebar-top-extend">
+          <div id="navigation-toggle-extend">
+            <img src="/assets/img/dashboard-assets/menu-extend.svg" alt="" />
+          </div>
+          <h3>Menu</h3>
+        </div>
+        <div class="sidebar-bottom-extend">
+          <div id="logout-button-extend">
+            <img src="/assets/img/dashboard-assets/log-out.svg" alt="" />
+          </div>
+          <p>Log-Out</p>
+        </div>
+      </div>
+      <div class="main-content">
+        <!-- Header -->
+        <div class="main-content__header">
+          <div class="main-content__header-start">
+            <h1>The Library</h1>
+            <p>Hi Sir {username}</p>
+          </div>
+          <div class="main-content__header-end">
+            <div class="header__end">
+              <div id="end__dashboard-avatar"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Header End -->
+        <div class="content-group-one">
+          <section class="dashboard-navigation">
+            <a href=""
+              ><div class="dashboard-navigation__button" id="issued-books">
+                <div class="flex-v">
+                  <div class="flex-h">
+                    <p>Issued Books</p>
+                    <img src="/assets/img/dashboard-assets/issued books.svg" alt="" />
+                  </div>
+                  <h1>0</h1>
+                </div>
+              </div></a
+            >
+            <a href=""
+              ><div class="dashboard-navigation__button overdue-books" id="overdue-books">
+                <div class="flex-v">
+                  <div class="flex-h">
+                    <p>Overdue Books</p>
+                    <img src="/assets/img/dashboard-assets/overdue-book.svg" alt="" />
+                  </div>
+                  <h1>0</h1>
+                </div>
+              </div></a
+            >
+            <a href=""
+              ><div class="dashboard-navigation__button" id="borrowers">
+                <div class="flex-v">
+                  <div class="flex-h">
+                    <p>Borrowers</p>
+                    <img src="/assets/img/dashboard-assets/library-card.png" alt="" />
+                  </div>
+                  <h1>0</h1>
+                </div>
+              </div></a
+            >
+            <a href=""
+              ><div class="dashboard-navigation__button" id="visitors">
+                <div class="flex-v">
+                  <div class="flex-h">
+                    <p>Today's Visitors</p>
+                    <img src="/assets/img/dashboard-assets/visitors.png" alt="" />
+                  </div>
+                  <h1>0</h1>
+                </div>
+              </div></a
+            >
+          </section>
+          <section class="statistics">
+            <div class="statistics__graph"></div>
+          </section>
+        </div>
+        <div class="box"></div>
+        <div class="main-function-container">
+          <a href=""
+            ><div class="main-function__button" id="--borrow-book">
+              <div class="flex-h">
+                <p>Borrow Books</p>
+                <img src="/assets/img/dashboard-assets/borrow-book.svg" alt="" />
+              </div></div
+          ></a>
+          <a href=""
+            ><div class="main-function__button" id="--return-book">
+              <div class="flex-h">
+                <p>Return Books</p>
+                <img src="/assets/img/dashboard-assets/return-book.svg" alt="" />
+              </div></div
+          ></a>
+          <a href="/pages/manage-books/manage-books.html"
+            ><div class="main-function__button" id="--manage-book">
+              <div class="flex-h">
+                <p>Manage Books</p>
+                <img src="/assets/img/dashboard-assets/manage-book.svg" alt="" />
+              </div></div
+          ></a>
+          <a href=""><div class="main-function__button" id=""></div></a>
+        </div>
+      </div>
+      <section class="highlight-section">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi maxime repellat, placeat voluptates nisi recusandae non. Aliquam quae earum vero, libero voluptatum sed saepe fugiat aspernatur quasi atque accusamus quibusdam.</p>
+      </section>
+    </main>
+    <!-- main-content-end -->
+  </body>
+  <script src="/assets/js/dashboard-menu-anim.js"></script>
+  <script type="module" src="/src/logout.js"></script>
+</html>

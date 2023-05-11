@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Product Sans Thin';
+  src: url('/assets/font/Product Sans Thin.ttf');
+}
+@font-face {
+  font-family: 'Product Sans Light';
+  src: url('/assets/font/Product Sans Light.ttf');
+}
+@font-face {
+  font-family: 'Product Sans Regular';
+  src: url('/assets/font/Product Sans Regular.ttf');
+}
+@font-face {
+  font-family: 'Product Sans Bold';
+  src: url('/assets/font/Product Sans Bold.ttf');
+}
+@font-face {
+  font-family: 'Product Sans Italic';
+  src: url('/assets/font/Product Sans Italic.ttf');
+}
+@font-face {
+  font-family: 'Product Sans Bold Italic';
+  src: url('/assets/font/Product Sans Bold Italic.ttf');
+}

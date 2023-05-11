@@ -1,0 +1,114 @@
+@import url('/assets/font/product-sans-font.css');
+/* 
+  Colour Palete
+  #EDEDF6
+  #685AE0
+  #7B69B7
+*/
+body {
+  margin: 0;
+  font-family: 'Product Sans Regular';
+}
+header {
+  height: 50px;
+  background-color: #7b69b7;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px 0 10px;
+  box-sizing: border-box;
+}
+.header__start {
+  color: #ffffff;
+  line-height: 0;
+}
+
+main {
+  background-color: #303030;
+  height: calc(100dvh - 60px);
+}
+.main-content {
+  background-image: radial-gradient(blue, black);
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-content__table-container {
+  height: 90%;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.main-content__table-container .top-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.top-flex select {
+  width: 200px;
+  border: none;
+}
+#search-books-form {
+  display: flex;
+  flex-flow: row;
+  overflow: hidden;
+}
+#search-books-form img {
+  width: 20px;
+  margin: auto;
+}
+#__search_book {
+  height: 40px;
+  border: none;
+  outline: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 20px;
+  font-family: 'Product Sans';
+}
+#__search-button {
+  width: 55px;
+  outline: none;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+/*  */
+td,
+th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#book-table {
+  table-layout: fixed;
+  width: 100%;
+}
+.main-content__table-container {
+  display: flex;
+  flex-direction: column;
+  height: 95%;
+  margin-left: 1%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+/*  */
+#book_id {
+  width: 100px;
+}
+
+.main-container__table-container-navigation {
+  margin-top: auto;
+  height: 40px;
+  background-color: #696969;
+}
+
+.table-content__preview {
+  width: 350px;
+  height: 100%;
+  background-color: #303030;
+}

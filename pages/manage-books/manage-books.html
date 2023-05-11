@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/manage-books.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <title>Manage Books</title>
+    <script type="module">
+      let uID = '';
+      import { app } from '/src/firebase/firebase-config.js';
+      import { getAuth } from 'https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js';
+      import { getDatabase, ref, child, get } from 'https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js';
+      const auth = getAuth(app);
+      auth.onAuthStateChanged((user) => {
+        if (!user) {
+          window.location.replace('/pages/login.html');
+        } else {
+          uID = user.uid;
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="header__start">
+        <h1>Manage Books</h1>
+      </div>
+      <div class="header__end"></div>
+    </header>
+    <!-- TODO: Not yet implemented-->
+    <main>
+      <div class="main-content">
+        <div class="main-content__table-container">
+          <div class="top-flex">
+            <form id="search-books-form">
+              <input type="search" name="search_book" id="__search_book" />
+              <button id="__search-button"><img src="/assets/img/dashboard-assets/search-icon.svg" alt="" /></button>
+            </form>
+            <select name="select-category" id="select-category">
+              <option value="">Select a Category</option>
+              <option value="shelf_1">Shelf 1</option>
+              <option value="shelf_2">Shelf 2</option>
+              <option value="shelf_3">Shelf 3</option>
+              <option value="shelf_4">Shelf 4</option>
+            </select>
+          </div>
+          <!-- table_start -->
+          <table id="book-table" class="table-xsm table-striped">
+            <thead>
+              <tr>
+                <th scope="col" id="book_id">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Available</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!--  -->
+            </tbody>
+          </table>
+          <!-- table_end -->
+          <div class="main-container__table-container-navigation"></div>
+        </div>
+        <div class="table-content__preview"></div>
+      </div>
+    </main>
+  </body>
+  <script type="module" src="/src/search-books.js"></script>
+</html>
