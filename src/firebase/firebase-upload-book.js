@@ -19,22 +19,29 @@ const deleteImageBtn = document.getElementById('delete-image');
 imageChooser.addEventListener('click', (e) => {
   e.preventDefault();
   var input = document.getElementById('upload-input');
+
+  input.setAttribute('accept', 'image/*');
   input.click();
   input.onchange = function (event) {
     var file = event.target.files[0];
-    var reader = new FileReader();
-    reader.onload = function () {
-      var image = document.createElement('img');
-      image.src = reader.result;
-      coverImage = reader.result;
-      var container = document.getElementById('image-upload');
-      container.innerHTML = '';
-      container.appendChild(image);
-      var img = document.getElementById('add-image-icon');
-      img.src = '/assets/img/manage-books-assets/change.svg';
-      deleteImageBtn.style.display = 'block';
-    };
-    reader.readAsDataURL(file);
+
+    if (file && file.type.startsWith('image/')) {
+      var reader = new FileReader();
+      reader.onload = function () {
+        var image = document.createElement('img');
+        image.src = reader.result;
+        coverImage = reader.result;
+        var container = document.getElementById('image-upload');
+        container.innerHTML = '';
+        container.appendChild(image);
+        var img = document.getElementById('add-image-icon');
+        img.src = '/assets/img/manage-books-assets/change.svg';
+        deleteImageBtn.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    } else {
+      console.log('Please select a valid image file.');
+    }
   };
 });
 
