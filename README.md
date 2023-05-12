@@ -23,7 +23,7 @@
    # Technologies Used
     
    <ul>
-      <li>Front-end: HTML, CSS, JavaScript, Bootstrap</li>
+      <li>Front-end: HTML, CSS, JavaScript</li>
       <li>Back-end: Firebase (Authentication, Realtime Database, Hosting)</li>
       <li>Other libraries/frameworks: Bootstrap, jQuery</li>
    </ul>
