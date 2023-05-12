@@ -150,8 +150,6 @@ main {
 
   flex-direction: column;
 }
-.main-content__header-end {
-}
 .content-group-one {
   display: flex;
   flex-direction: row;
@@ -168,6 +166,8 @@ main {
   height: 90px;
   width: 15vw;
   border-radius: 5px;
+  position: relative;
+  overflow: hidden;
 }
 .dashboard-navigation__button .flex-h {
   display: flex;
@@ -186,8 +186,15 @@ main {
   transform: translateY(-10px);
 }
 .dashboard-navigation img {
-  width: 45px;
-  filter: invert();
+  width: 100px; /* Adjust width */
+
+  /* Remove these if you want flex */
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  transform: translateX(16px) translateY(13px);
+  filter: invert() opacity(0.65);
+  /* Remove these if you want flex */
 }
 .main-function__button img {
   width: 45px;
