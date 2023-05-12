@@ -1,5 +1,5 @@
 const searchBooks = document.getElementById('search-books-form');
-const selectCategory = document.getElementById('select-category');
+const selectCategory = document.getElementById('select-shelf');
 let book = '';
 let selectedCategory = '';
 
