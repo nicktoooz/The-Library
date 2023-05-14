@@ -5,7 +5,7 @@
    version="1.1"
    viewBox="0 0 700 700"
    id="svg149"
-   sodipodi:docname="noun-add-1073651.svg"
+   sodipodi:docname="add.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -22,8 +22,8 @@
      inkscape:document-units="pt"
      showgrid="false"
      inkscape:zoom="0.50464286"
-     inkscape:cx="466.66667"
-     inkscape:cy="465.67587"
+     inkscape:cx="468.64826"
+     inkscape:cy="465.67586"
      inkscape:window-width="1366"
      inkscape:window-height="740"
      inkscape:window-x="0"
@@ -184,6 +184,7 @@
      id="g147">
     <path
        d="m 507.502,326.668 h -134.17 v -134.17 c 0,-12.832 -10.5,-23.332 -23.332,-23.332 -12.832,0 -23.332,10.5 -23.332,23.332 v 134.17 h -134.17 c -12.832,0 -23.332,10.5 -23.332,23.332 0,12.832 10.5,23.332 23.332,23.332 h 134.17 v 134.17 c 0,12.832 10.5,23.332 23.332,23.332 12.832,0 23.332,-10.5 23.332,-23.332 v -134.17 h 134.17 c 12.832,0 23.332,-10.5 23.332,-23.332 0,-12.832 -10.5,-23.332 -23.332,-23.332 z"
-       id="path67" />
+       id="path67"
+       style="fill:#ffffff" />
   </g>
 </svg>
