@@ -117,7 +117,6 @@ th {
 }
 #bottom-control__add-book img {
   width: 50px;
-  filter: invert();
 }
 
 .table-content__preview {
@@ -236,7 +235,6 @@ box-sizing: border-box;
 }
 .image-container__footer img {
   width: 40px;
-  filter: invert();
 }
 
 #shelf-chooser {
