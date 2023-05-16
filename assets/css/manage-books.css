@@ -146,7 +146,7 @@ td img{
 }
 
 .table-content__preview {
-  width: 300px;
+  width: 400px;
   height: 100%;
   display: flex;
   overflow-y: scroll;
@@ -399,7 +399,7 @@ tbody tr:hover{
   font-size: small  ;
 }
 #book-title{
-  max-width: 150px;
+  max-width: 240px;
   font-family: 'Product Sans Thin';
 
 }
