@@ -363,6 +363,7 @@ tbody tr:hover{
 
 }
 #book-cover-container img#no-image{
+  margin-top: 30%;
   height: 50px;
   width: 50px;
 }
