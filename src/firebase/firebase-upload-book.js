@@ -104,6 +104,7 @@ upload.addEventListener('submit', async (e) => {
         Language: language,
         Shelf: shelf,
         Description: description,
+        isAvailable: true,
       })
         .then(async () => {
           //ADD SUCCESSFUL CALLBACK 'Meaning, no duplicate'
@@ -116,12 +117,13 @@ upload.addEventListener('submit', async (e) => {
 
               await uploadBytes(storageReference, image)
                 .then(() => {
+                  var container = document.getElementById('image-upload');
+                  container.innerHTML = '';
                   console.log('Upload successful');
                 })
                 .catch((error) => {
                   console.log('Upload error:', error);
                 });
-              image = null;
             } else {
               console.log('Invalid file type. Please select a valid image file.');
             }

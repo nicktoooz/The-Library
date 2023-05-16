@@ -15,3 +15,5 @@ selectCategory.addEventListener('change', (e) => {
     console.log('Submitted: ', book, ':', selectedCategory);
   }
 });
+
+export {selectCategory}
