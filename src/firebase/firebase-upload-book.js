@@ -25,27 +25,55 @@ const deleteImageBtn = document.getElementById('delete-image');
 imageChooser.addEventListener('click', (e) => {
   e.preventDefault();
   var input = document.getElementById('upload-input');
-  input.setAttribute('accept', 'image/*'); //SETTING MIME TYPE FOR FILE CHOOSER
+  input.setAttribute('accept', 'image/'); //SETTING MIME TYPE FOR FILE CHOOSER
   input.click();
   input.onchange = (event) => {
-    /*
-      file = event.target.files[0]; //FETCHING FILES FROM <input type"file"> tag
-      fileType = image.name.split('.').pop() FETCHING FILE EXTENSION
-      */
-    image = event.target.files[0];
-    if (image && image.type.startsWith('image/')) {
-      var reader = new FileReader();
-      reader.onload = () => {
+    var file = event.target.files[0]; //FETCHING FILES FROM <input type"file"> tag
+
+    if (file && file.type.startsWith('image/')) {
+      if (file.type !== 'image/png') {
+        var reader = new FileReader();
+        reader.onload = () => {
+          var img = new Image();
+          img.onload = () => {
+            var canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            canvas.toBlob((blob) => {
+              var convertedFile = new File([blob], 'image.png', { type: 'image/png' });
+              // Use the convertedFile variable as needed
+              // e.g., assign it to the image variable or perform other operations
+              image = convertedFile;
+
+              var localImage = document.createElement('img');
+              localImage.src = reader.result;
+              var container = document.getElementById('image-upload');
+              container.innerHTML = '';
+              container.appendChild(localImage);
+              var img = document.getElementById('add-image-icon');
+              img.src = '/assets/img/manage-books-assets/change.svg';
+              deleteImageBtn.style.display = 'block';
+            }, 'image/png');
+          };
+          img.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        // The file is already in PNG format, use it directly
+        // Assign it to the image variable or perform other operations
+        image = file;
+
         var localImage = document.createElement('img');
-        localImage.src = reader.result;
+        localImage.src = URL.createObjectURL(file);
         var container = document.getElementById('image-upload');
         container.innerHTML = '';
         container.appendChild(localImage);
         var img = document.getElementById('add-image-icon');
         img.src = '/assets/img/manage-books-assets/change.svg';
         deleteImageBtn.style.display = 'block';
-      };
-      reader.readAsDataURL(image);
+      }
     } else {
       console.log('Please select a valid image file.');
       image = null;
@@ -136,6 +164,8 @@ upload.addEventListener('submit', async (e) => {
           clearForms();
           const addBookOverlay = document.getElementById('add-book__overlay');
           addBookOverlay.style.display = 'none';
+          deleteImageBtn.style.display = 'none';
+          document.getElementById('add-image-icon').src = '/assets/img/manage-books-assets/add.svg';
           setTimeout(() => {
             document.querySelector('.callback-notification').classList.remove('active');
           }, 3000);
