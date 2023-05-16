@@ -21,6 +21,7 @@
         }
       });
     </script>
+    <script type="module" src="/src/firebase/firebase-fetch-books.js"></script>
   </head>
   <body>
     <!-- InVis -->
@@ -52,11 +53,11 @@
             <input type="text" name="language" id="" placeholder="Language" required />
             <select name="shelf_chooser" id="shelf-chooser" required>
               <option value="">Choose a shelf</option>
-              <option value="shelf_1">Shelf 1</option>
-              <option value="shelf_2">Shelf 2</option>
-              <option value="shelf_3">Shelf 3</option>
-              <option value="shelf_4">Shelf 4</option>
-              <option value="shelf_5">Shelf 5</option>
+              <option value="Shelf 1">Shelf 1</option>
+              <option value="Shelf 2">Shelf 2</option>
+              <option value="Shelf 3">Shelf 3</option>
+              <option value="Shelf 4">Shelf 4</option>
+              <option value="Shelf 5">Shelf 5</option>
             </select>
             <textarea name="description" id="" cols="25" rows="8" placeholder="Description" required></textarea>
           </div>
@@ -98,21 +99,22 @@
             </form>
             <select name="select-shelf" id="select-shelf">
               <option value="">Select a Category</option>
-              <option value="shelf_1">Shelf 1</option>
-              <option value="shelf_2">Shelf 2</option>
-              <option value="shelf_3">Shelf 3</option>
-              <option value="shelf_4">Shelf 4</option>
-              <option value="shelf_5">Shelf 5</option>
+              <option value="Shelf 1">Shelf 1</option>
+              <option value="Shelf 2">Shelf 2</option>
+              <option value="Shelf 3">Shelf 3</option>
+              <option value="Shelf 4">Shelf 4</option>
+              <option value="Shelf 5">Shelf 5</option>
             </select>
           </div>
           <!-- table_start -->
-          <table id="book-table" class="table-xsm table-striped">
+          <table id="book-table" class="table-sm">
             <thead>
               <tr>
                 <th scope="col" id="book_id">ID</th>
-                <th scope="col">Title</th>
-                <th scope="col">Author</th>
-                <th scope="col">Available</th>
+                <th scope="col" id="book_title">Title</th>
+                <th scope="col" id="book_author">Author</th>
+                <th scope="col" id="book_year">Year</th>
+                <th scope="col" id="book_available">Available</th>
               </tr>
             </thead>
             <tbody>
@@ -124,7 +126,32 @@
             <img src="/assets/img/manage-books-assets/add.svg" alt="" />
           </div>
         </div>
-        <div class="table-content__preview"></div>
+        <div class="table-content__preview">
+          <div class="table-content__preview__top">
+            <div id="book-cover-container"></div>
+          </div>
+          <div class="table-content__preview__details">
+            <div id="table-content__preview__controls">
+              <button id="edit-book"><img src="/assets/img/manage-books-assets/edit.svg" alt="" /></button>
+              <button id="delete-book"><img src="/assets/img/manage-books-assets/delete.svg" alt="" /></button>
+            </div>
+            <div class="inner-details-horizontal">
+              <h4 id="book-title"></h4>
+              <p id="book-id"></p>
+            </div>
+            <div class="inner-details-horizontal">
+              <p id="book-author"></p>
+              <p id="book-year"></p>
+            </div>
+            <div class="inner-details-horizontal">
+              <p id="book-genre"></p>
+              <p id="book-shelf"></p>
+            </div>
+            <div class="inner-details-vertical">
+              <p id="book-description"></p>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   </body>

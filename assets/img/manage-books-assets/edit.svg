@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="700pt"
+   height="700pt"
+   version="1.1"
+   viewBox="0 0 700 700"
+   id="svg8"
+   sodipodi:docname="noun-edit-5718956.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="pt"
+     showgrid="false"
+     inkscape:zoom="0.50464286"
+     inkscape:cx="466.66667"
+     inkscape:cy="465.67587"
+     inkscape:window-width="1366"
+     inkscape:window-height="740"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <g
+     fill-rule="evenodd"
+     id="g6"
+     transform="translate(6.831625,63.166875)"
+     style="fill:#ffffff">
+    <path
+       d="m 186.67,105 c -32.219,0 -58.336,26.117 -58.336,58.332 v 280 c 0,32.219 26.117,58.336 58.336,58.336 h 280 c 32.215,0 58.332,-26.117 58.332,-58.336 v -175 c 0,-6.4414 5.2227,-11.664 11.668,-11.664 6.4414,0 11.664,5.2227 11.664,11.664 v 175 c 0,45.105 -36.562,81.668 -81.664,81.668 h -280 c -45.105,0 -81.668,-36.562 -81.668,-81.668 v -280 c 0,-45.102 36.562,-81.664 81.668,-81.664 h 175 c 6.4414,0 11.664,5.2227 11.664,11.664 0,6.4453 -5.2227,11.668 -11.664,11.668 z"
+       id="path2"
+       style="fill:#ffffff" />
+    <path
+       d="m 505.09,61.75 c 17.441,-17.445 45.723,-17.445 63.164,0 17.441,17.441 17.441,45.723 0,63.164 l -163.33,163.34 c -1.2812,1.2773 -2.8438,2.2422 -4.5625,2.8164 l -70,23.332 c -4.1914,1.3984 -8.8125,0.30859 -11.938,-2.8164 -3.125,-3.1289 -4.2148,-7.7461 -2.8164,-11.941 l 23.332,-70 c 0.57031,-1.7188 1.5352,-3.2773 2.8164,-4.5586 z m 46.664,16.496 c -8.332,-8.3281 -21.836,-8.3281 -30.164,0 l -161.39,161.39 -15.082,45.25 45.25,-15.082 161.39,-161.39 c 8.332,-8.3281 8.332,-21.836 0,-30.168 z"
+       id="path4"
+       style="fill:#ffffff" />
+  </g>
+</svg>
