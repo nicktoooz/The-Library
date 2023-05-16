@@ -35,15 +35,14 @@ function updateTable(selectedShelf) {
           row.appendChild(yearCell);
 
           const availabilityCell = document.createElement('td');
-          const availabilityImage = document.createElement('img')
+          const availabilityImage = document.createElement('img');
 
           if (details.isAvailable == true) {
-            availabilityImage.src = '/assets/img/manage-books-assets/success.png'
+            availabilityImage.src = '/assets/img/manage-books-assets/success.png';
           } else {
-            availabilityImage.src = '/assets/img/manage-books-assets/error.png'
-            
+            availabilityImage.src = '/assets/img/manage-books-assets/error.png';
           }
-          availabilityCell.appendChild(availabilityImage)
+          availabilityCell.appendChild(availabilityImage);
           row.appendChild(availabilityCell);
 
           table.appendChild(row);
@@ -59,13 +58,14 @@ function updateTable(selectedShelf) {
             document.getElementById('book-id').innerHTML = `ID-${book}`;
             document.getElementById('book-author').innerHTML = details.Author;
             document.getElementById('book-year').innerHTML = details.Year;
-            document.getElementById('book-genre').innerHTML = details.Genre
-            document.getElementById('book-shelf').innerHTML = details.Shelf
-            document.getElementById('book-description').innerHTML = details.Description
-            document.getElementById('table-content__preview__controls').style.display = 'flex'
+            document.getElementById('book-genre').innerHTML = details.Genre;
+            document.getElementById('book-shelf').innerHTML = details.Shelf;
+            document.getElementById('book-description').innerHTML = details.Description;
+            document.getElementById('table-content__preview__controls').style.display = 'flex';
 
             const storage = getStorage();
-            const image = imageRef(storage, 'Book Covers/' + book + '.jpg');
+            const image = imageRef(storage, 'Book Covers/' + book + '.png');
+
             getDownloadURL(image)
               .then((url) => {
                 const imageHolder = document.getElementById('book-cover-container');

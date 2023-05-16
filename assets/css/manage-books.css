@@ -374,7 +374,7 @@ tbody tr:hover{
 }
 .inner-details-horizontal{
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
 }
 .inner-details-vertical{
