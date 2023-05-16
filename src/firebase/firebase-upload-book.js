@@ -1,3 +1,6 @@
+import { getDatabase, ref, set, push, get } from 'https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js';
+import { getStorage, ref as storageRef, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.21.0/firebase-storage.js';
+
 let bookID = '';
 let title = '';
 let author = '';
@@ -8,39 +11,44 @@ let publicationYear = '';
 let language = '';
 let shelf = '';
 let description = '';
-let coverImage = null;
+let image = null;
+
 const shelfChooser = document.getElementById('shelf-chooser');
 shelfChooser.addEventListener('change', (e) => {
   shelf = shelfChooser.value;
   console.log(shelf);
 });
+
 const imageChooser = document.getElementById('add-image');
 const deleteImageBtn = document.getElementById('delete-image');
+
 imageChooser.addEventListener('click', (e) => {
   e.preventDefault();
   var input = document.getElementById('upload-input');
-
-  input.setAttribute('accept', 'image/*');
+  input.setAttribute('accept', 'image/*'); //SETTING MIME TYPE FOR FILE CHOOSER
   input.click();
-  input.onchange = function (event) {
-    var file = event.target.files[0];
-
-    if (file && file.type.startsWith('image/')) {
+  input.onchange = (event) => {
+    /*
+      file = event.target.files[0]; //FETCHING FILES FROM <input type"file"> tag
+      fileType = image.name.split('.').pop() FETCHING FILE EXTENSION
+      */
+    image = event.target.files[0];
+    if (image && image.type.startsWith('image/')) {
       var reader = new FileReader();
-      reader.onload = function () {
-        var image = document.createElement('img');
-        image.src = reader.result;
-        coverImage = reader.result;
+      reader.onload = () => {
+        var localImage = document.createElement('img');
+        localImage.src = reader.result;
         var container = document.getElementById('image-upload');
         container.innerHTML = '';
-        container.appendChild(image);
+        container.appendChild(localImage);
         var img = document.getElementById('add-image-icon');
         img.src = '/assets/img/manage-books-assets/change.svg';
         deleteImageBtn.style.display = 'block';
       };
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(image);
     } else {
       console.log('Please select a valid image file.');
+      image = null;
     }
   };
 });
@@ -52,12 +60,11 @@ deleteImageBtn.addEventListener('click', (e) => {
   var img = document.getElementById('add-image-icon');
   img.src = '/assets/img/manage-books-assets/add.svg';
   deleteImageBtn.style.display = 'none';
-  coverImage = null;
+  image = null;
 });
 
-// TODO: Add to firebase
 const upload = document.getElementById('add-book-form');
-upload.addEventListener('submit', (e) => {
+upload.addEventListener('submit', async (e) => {
   e.preventDefault();
   bookID = upload.book_id.value;
   title = upload.title.value;
@@ -67,19 +74,88 @@ upload.addEventListener('submit', (e) => {
   publisher = upload.publisher.value;
   publicationYear = upload.year.value;
   language = upload.language.value;
-  // shelf
+  shelf = upload.shelf_chooser.value;
   description = upload.description.value;
-  // coverImage
 
-  console.log('Book ID: ', bookID);
-  console.log('Title: ', title);
-  console.log('Author: ', author);
-  console.log('ISBN: ', isbn);
-  console.log('Genre: ', genre);
-  console.log('Publisher: ', publisher);
-  console.log('Publication Year: ', publicationYear);
-  console.log('Language: ', language);
-  console.log('Shelf: ', shelf);
-  console.log('Description: ', description);
-  console.log('Cover: ', coverImage);
+  const database = getDatabase(); //initialise RTDB
+  const reference = ref(database, 'Books/'); //MAKE REFERENCE
+
+  const books = ref(database, 'Books/' + bookID); //FETCH THE BOOK FROM THE DATABASE
+  get(books).then((snapshot) => {
+    if (snapshot.exists()) {
+      //CHECK IF IT ALREADY EXIST, THROW AN ERROR
+      document.getElementById('callback-notification__title').innerHTML = 'Opps!';
+      document.getElementById('callback-notification__description').innerHTML = 'It seems that this book is already in the database.';
+      document.getElementById('status-image__content').src = '/assets/img/manage-books-assets/error.png';
+      document.querySelector('.callback-notification').classList.add('active');
+      setTimeout(() => {
+        document.querySelector('.callback-notification').classList.remove('active');
+      }, 3000);
+    } else {
+      //REGISTER THE BOOKS
+      set(books, {
+        'Book ID': bookID,
+        Title: title,
+        Author: author,
+        ISBN: isbn,
+        Genre: genre,
+        Publisher: publisher,
+        Year: publicationYear,
+        Language: language,
+        Shelf: shelf,
+        Description: description,
+      })
+        .then(async () => {
+          //ADD SUCCESSFUL CALLBACK 'Meaning, no duplicate'
+          if (image) {
+            //CHECK IF THE USER UPLOADED AN IMAGE
+            if (image.type.startsWith('image/')) {
+              //CHECK IF THE MIME TYPE IS IMAGE
+              const storage = getStorage();
+              const storageReference = storageRef(storage, `Book Covers/${bookID}.${image.name.split('.').pop()}`);
+
+              await uploadBytes(storageReference, image)
+                .then(() => {
+                  console.log('Upload successful');
+                })
+                .catch((error) => {
+                  console.log('Upload error:', error);
+                });
+              image = null;
+            } else {
+              console.log('Invalid file type. Please select a valid image file.');
+            }
+          }
+          //DISPLAY THE SUCCESSFUL CALLBACK
+          document.getElementById('callback-notification__title').innerHTML = 'Success';
+          document.getElementById('callback-notification__description').innerHTML = 'The book was registered to the database.';
+          document.getElementById('status-image__content').src = '/assets/img/manage-books-assets/success.png';
+          document.querySelector('.callback-notification').classList.add('active');
+          clearForms();
+          const addBookOverlay = document.getElementById('add-book__overlay');
+          addBookOverlay.style.display = 'none';
+          setTimeout(() => {
+            document.querySelector('.callback-notification').classList.remove('active');
+          }, 3000);
+        })
+        .catch((error) => {
+          //THROW AN ERROR
+          //DISPLAY THE ERROR MESSAGE
+          document.getElementById('callback-notification__title').innerHTML = 'Opps!';
+          document.getElementById('callback-notification__description').innerHTML = 'Something went wrong while registering this book.';
+          document.getElementById('status-image__content').src = '/assets/img/manage-books-assets/error.png';
+          document.querySelector('.callback-notification').classList.add('active');
+          setTimeout(() => {
+            document.querySelector('.callback-notification').classList.remove('active');
+          }, 3000);
+        });
+    }
+  });
 });
+
+function clearForms() {
+  const forms = document.getElementsByTagName('form');
+  for (let i = 0; i < forms.length; i++) {
+    forms[i].reset();
+  }
+}
