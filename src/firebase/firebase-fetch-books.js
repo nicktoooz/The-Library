@@ -6,7 +6,24 @@ const booksRef = bookRef(database, 'Books');
 const table = document.getElementsByTagName('tbody')[0]; // Assuming there is only one <tbody> element
 const shelfSelect = document.getElementById('select-shelf');
 
-function updateTable(selectedShelf) {
+const searchBooks = document.getElementById('search-books-form');
+let search = '';
+searchBooks.addEventListener('submit', (e) => {
+  e.preventDefault(); //default action should not be taken as it normally would be.
+  search = searchBooks.search_book.value; //search input value goes to global
+  updateTable(shelfSelect.value, search);
+});
+searchBooks.addEventListener('input', (e) => {
+  //this event fires whenever the user change the value of the <input> element
+  setTimeout(() => {
+    search = searchBooks.search_book.value; //search input value goes to global
+    updateTable(shelfSelect.value, search); //this function is executed whenever you change the value of the <input> element
+  }, 1000);
+});
+
+function updateTable(selectedShelf, title) {
+  const regex = new RegExp(title, 'i');
+
   onValue(booksRef, (snapshot) => {
     if (snapshot.exists()) {
       const booksData = snapshot.val();
@@ -14,9 +31,10 @@ function updateTable(selectedShelf) {
 
       for (const book in booksData) {
         const details = booksData[book];
-        if (details.Shelf === selectedShelf || selectedShelf == '') {
+        console.log((details.Shelf === selectedShelf || selectedShelf === '') && (regex.test(details.Title) || regex.test(book) || regex.test(details.Author)))
+        if ((details.Shelf === selectedShelf || selectedShelf === '') && (regex.test(details.Title) || regex.test(book) || regex.test(details.Author))) {
           const row = document.createElement('tr');
-
+          
           const bookIDCell = document.createElement('td');
           bookIDCell.innerHTML = book;
           row.appendChild(bookIDCell);
@@ -40,6 +58,7 @@ function updateTable(selectedShelf) {
             availabilityImage.src = '/assets/img/manage-books-assets/success.png';
           } else {
             availabilityImage.src = '/assets/img/manage-books-assets/error.png';
+
           }
           availabilityCell.appendChild(availabilityImage);
           row.appendChild(availabilityCell);
@@ -60,6 +79,17 @@ function updateTable(selectedShelf) {
             document.getElementById('book-genre').innerHTML = details.Genre;
             document.getElementById('book-shelf').innerHTML = details.Shelf;
             document.getElementById('book-description').innerHTML = details.Description;
+            document.getElementById('book-language').innerHTML = details.Language;
+            document.getElementById('book-publisher').innerHTML = details.Publisher;
+            document.getElementById('book-isbn').innerHTML = details.ISBN;
+            document.getElementById('isbn-label').innerHTML = "ISBN: "
+            if (details.isAvailable == true) {
+              document.getElementById('availability-tag').src = '/assets/img/manage-books-assets/available-tag.png'
+            } else {
+              document.getElementById('availability-tag').src = '/assets/img/manage-books-assets/not-available-tag.png'
+  
+            }
+            
             document.getElementById('table-content__preview__controls').style.display = 'flex';
 
             const storage = getStorage();
@@ -92,5 +122,5 @@ updateTable(shelfSelect.value);
 // Event listener for shelf selection change
 shelfSelect.addEventListener('change', (event) => {
   const selectedShelf = event.target.value;
-  updateTable(selectedShelf);
+  updateTable(selectedShelf, search); //after searching, the value is still be there unless the user submitted an empty form, all of the records will display
 });

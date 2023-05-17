@@ -352,7 +352,7 @@ tbody tr:hover {
   justify-content: center;
 }
 #book-cover-container {
-  height: 300px;
+  height: 400px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -374,7 +374,7 @@ tbody tr:hover {
   z-index: 1;
 }
 #book-cover-container img#no-image {
-  margin-top: 30%;
+  margin-top: 40%;
   height: 50px;
   width: 50px;
   filter: grayscale();
@@ -390,18 +390,24 @@ tbody tr:hover {
   align-items: baseline;
   justify-content: space-between;
 }
+.inner-details-horizontal-flex-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#availability-tag {
+  width: 150px;
+}
 .inner-details-vertical {
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 #table-content__preview__controls {
   display: flex;
-  margin-top: auto;
   flex-direction: row;
-  width: 100%;
   display: none;
-  justify-content: end;
-  margin-bottom: 5%;
 }
 #book-id {
   font-weight: bold;

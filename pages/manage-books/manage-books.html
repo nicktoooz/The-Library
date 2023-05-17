@@ -131,9 +131,12 @@
             <div id="book-cover-container"></div>
           </div>
           <div class="table-content__preview__details">
-            <div id="table-content__preview__controls">
-              <button id="edit-book"><img src="/assets/img/manage-books-assets/edit.svg" alt="" /></button>
-              <button id="delete-book"><img src="/assets/img/manage-books-assets/delete.svg" alt="" /></button>
+            <div class="inner-details-horizontal-flex-top">
+              <img id="availability-tag" src="" alt="">
+              <div id="table-content__preview__controls">
+                <button id="edit-book"><img src="/assets/img/manage-books-assets/edit.svg" alt="" /></button>
+                <button id="delete-book"><img src="/assets/img/manage-books-assets/delete.svg" alt="" /></button>
+              </div>
             </div>
             <div class="inner-details-horizontal">
               <h4 id="book-title"></h4>
@@ -144,11 +147,19 @@
               <p id="book-year"></p>
             </div>
             <div class="inner-details-horizontal">
+              <p id="book-language"></p>
+              <p id="book-publisher"></p>
+            </div>
+            <div class="inner-details-horizontal">
               <p id="book-genre"></p>
               <p id="book-shelf"></p>
             </div>
             <div class="inner-details-vertical">
               <p id="book-description"></p>
+            </div>
+            <div class="inner-details-horizontal">
+              <p id="isbn-label"></p>
+              <p id="book-isbn"></p>
             </div>
           </div>
         </div>
@@ -157,5 +168,5 @@
   </body>
   <script src="/assets/js/manage-books/open-add-book-overlay.js"></script>
   <script type="module" src="/src/firebase/firebase-upload-book.js"></script>
-  <script type="module" src="/src/search-books.js"></script>
+  <script type="module" src="/src/firebase/firebase-delete-book.js"></script>
 </html>
