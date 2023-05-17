@@ -55,12 +55,17 @@ a {
   width: 30px;
   filter: invert();
 }
-.main-content__header-end #end__dashboard-avatar {
-  height: 60px;
-  width: 60px;
+#end__dashboard-avatar {
+  height: 80px;
+  width: 80px;
   background-color: #555555;
-  border-radius: 30px;
+  border-radius: 50%;
+  overflow: hidden;
   box-shadow: 3px 3px 3px #99999970;
+}
+#end__dashboard-avatar img{
+  max-width: 100%;
+  max-height: 100%;
 }
 #navigation-toggle,
 #navigation-toggle-extend {

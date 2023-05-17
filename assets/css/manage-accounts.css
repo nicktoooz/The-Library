@@ -1,0 +1,6 @@
+@import url('/assets/font/product-sans-font.css');
+
+body{
+    margin: 0;
+    font-family: 'Product Sans Regular';
+}
