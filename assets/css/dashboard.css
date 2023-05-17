@@ -48,8 +48,9 @@ a {
 .main-content__header-end #end__dashboard-avatar {
   height: 60px;
   width: 60px;
-  background-color: #BBBBBB;
+  background-color: #555555;
   border-radius: 30px;
+  box-shadow: 3px 3px 3px #99999970;
 }
 #navigation-toggle,
 #navigation-toggle-extend {
@@ -92,9 +93,9 @@ a {
 /* main-start */
 main {
   display: flex;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   flex-direction: row;
-  height: 100dvh;
+  height: 100%;
 }
 #sidebar--block {
   width: 55px;
@@ -167,7 +168,7 @@ main {
   height: 90px;
   width: 15vw;
   border-radius: 5px;
-  box-shadow: 5px 5px 4px #DDDDDD;
+  box-shadow: 5px 5px 4px #dddddd;
   position: relative;
   overflow: hidden;
 }
@@ -231,7 +232,8 @@ main {
   margin-left: 3%;
   border-radius: 5px;
   color: #ffffff;
-  background-color: #CCCCCC;
+  background-color: #cccccc;
+  box-shadow: 3px 3px 4px #7c7c7c70;
 }
 
 .highlight-section {
@@ -244,8 +246,8 @@ main {
   height: 60px;
   width: 97%;
   border-radius: 5px;
-  background-color: #DDDDDD;
-  box-shadow: 5px 5px 5px #CCCCCC;
+  background-color: #dddddd;
+  box-shadow: 5px 5px 5px #cccccc;
 }
 .main-function-container {
   height: 50px;
