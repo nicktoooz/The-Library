@@ -12,8 +12,7 @@ function updateTable(selectedShelf) {
       const booksData = snapshot.val();
       table.innerHTML = '';
 
-      const bookKeys = Object.keys(booksData).reverse(); // Reverse the keys
-      for (const book of bookKeys) {
+      for (const book in booksData) {
         const details = booksData[book];
         if (details.Shelf === selectedShelf || selectedShelf == '') {
           const row = document.createElement('tr');
