@@ -10,9 +10,19 @@ body {
   margin: 0;
   font-family: 'Product Sans Regular';
 }
+/* Hides the body scrollbar */
+body::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 a {
   text-decoration: none;
 }
+
 /* header-start */
 .header__end {
   display: flex;
@@ -228,12 +238,40 @@ main {
 }
 .statistics {
   flex: 1;
+  max-height: 390px;
   margin-right: 3%;
   margin-left: 3%;
   border-radius: 5px;
+  overflow: hidden;
   color: #ffffff;
+  display: flex;
   background-color: #cccccc;
   box-shadow: 3px 3px 4px #7c7c7c70;
+}
+
+.statistics__graph {
+  background-color: #333333;
+  flex: 3;
+}
+
+.statistics__info {
+  background-color: #355adc;
+  flex: 1;
+  overflow-y: scroll;
+}
+.statistics__info::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.statistics__info {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+@media screen and (max-width: 1250px) {
+  /*Hides the statistics info as soon as the screen width reaches < 1250px*/
+  .statistics__info {
+    display: none;
+  }
 }
 
 .highlight-section {
