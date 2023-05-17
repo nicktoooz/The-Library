@@ -1,9 +1,10 @@
 @import url('/assets/font/product-sans-font.css');
 /* 
   Colour Palete
-  #EDEDF6
-  #685AE0
-  #7B69B7
+  #333333 Call-to-Action && Header
+  #DDDDDD Background
+
+
 */
 body {
   margin: 0;
@@ -25,7 +26,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #685ae0;
+  background-color: #333333;
   border-radius: 20px;
   box-shadow: 2px 2px 2px #2a2a2a;
 }
@@ -33,7 +34,7 @@ a {
 #logout-button-extend:hover,
 #logout-button:active,
 #logout-button-extend:active {
-  background-color: #8393ce;
+  background-color: #707070;
   transition: 0.5s;
   transform: translate(1px, 1px);
   box-shadow: 1px 1px 1px #2a2a2a;
@@ -47,7 +48,7 @@ a {
 .main-content__header-end #end__dashboard-avatar {
   height: 60px;
   width: 60px;
-  background-color: #f5f7ff;
+  background-color: #BBBBBB;
   border-radius: 30px;
 }
 #navigation-toggle,
@@ -61,7 +62,7 @@ a {
 }
 #navigation-toggle:hover,
 #navigation-toggle-extend:hover {
-  background-color: hsl(230, 100%, 80%);
+  background-color: #707070;
 }
 .sidebar-top-extend {
   display: flex;
@@ -91,12 +92,13 @@ a {
 /* main-start */
 main {
   display: flex;
-  background-color: #ededf6;
+  background-color: #EEEEEE;
   flex-direction: row;
+  height: 100dvh;
 }
 #sidebar--block {
   width: 55px;
-  background-color: hsl(230, 70%, 60%);
+  background-color: #333333;
   align-items: center;
   justify-content: space-between;
   padding: 1% 0 1% 0;
@@ -105,7 +107,7 @@ main {
 #sidebar--extend {
   width: 200px;
   display: none;
-  background-color: hsl(230, 70%, 60%);
+  background-color: #333333;
   color: #f5f7ff;
   align-items: flex-start;
   justify-content: space-between;
@@ -126,9 +128,8 @@ main {
   margin-left: 2%;
 }
 .main-content__header {
-  background-color: #7b69b7;
-  box-shadow: 2px 2px 5px#9a9a9a;
-  color: #f5f7ff;
+  background-color: #00000000;
+  color: #333333;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
@@ -166,6 +167,7 @@ main {
   height: 90px;
   width: 15vw;
   border-radius: 5px;
+  box-shadow: 5px 5px 4px #DDDDDD;
   position: relative;
   overflow: hidden;
 }
@@ -229,20 +231,21 @@ main {
   margin-left: 3%;
   border-radius: 5px;
   color: #ffffff;
-  background-color: #4864e6;
+  background-color: #CCCCCC;
 }
 
 .highlight-section {
-  width: 220px;
-  background-color: #4864e6;
+  width: 250px;
+  background-color: #333333;
   color: #f5f7ff;
+  overflow-y: scroll;
 }
 .box {
   height: 60px;
   width: 97%;
   border-radius: 5px;
-  background-color: #b7bac7;
-  box-shadow: 5px 5px 5px#e5e2e2;
+  background-color: #DDDDDD;
+  box-shadow: 5px 5px 5px #CCCCCC;
 }
 .main-function-container {
   height: 50px;
@@ -258,5 +261,5 @@ main {
   margin-bottom: 10px;
   display: grid;
   border-radius: 5px;
-  background-color: #355adc;
+  background-color: #777777;
 }
