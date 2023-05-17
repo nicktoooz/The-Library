@@ -106,13 +106,13 @@ td img {
 }
 /* COLUMN SIZES */
 #book_id {
-  width: 100px;
+  width: 120px;
 }
 #book_title {
   flex: 1;
 }
 #book_author {
-  width: 150px;
+  width: 250px;
 }
 #book_year {
   width: 70px;
@@ -150,6 +150,15 @@ td img {
   flex-direction: column;
   color: #ededf6;
   background-color: #333333;
+}
+.table-content__preview::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.table-content__preview {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 #add-book__overlay {
   position: absolute;
@@ -225,6 +234,7 @@ td img {
   background-color: #dddddd;
   height: 400px;
   width: 250px;
+  border-radius: 5px;
   margin-left: auto;
   display: flex;
   justify-content: center;
@@ -287,10 +297,10 @@ td img {
 }
 .callback-notification {
   height: 100px;
-  width: 300px;
+  width: 400px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  background-color: #333333;
+  background-color: #555555;
   color: #eeeeee;
   font-size: small;
   position: absolute;
@@ -300,7 +310,7 @@ td img {
   margin-bottom: 30px;
   z-index: 6;
   transition: 0.5s linear;
-  transform: translateX(300px);
+  transform: translateX(400px);
   transition: 0.5s linear;
 }
 .callback-notification.active {
@@ -317,6 +327,7 @@ td img {
 #status-image {
   height: 100px;
   width: 100px;
+  margin-right: 3%;
   display: grid;
   align-items: center;
   justify-content: center;

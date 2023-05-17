@@ -113,9 +113,10 @@ upload.addEventListener('submit', async (e) => {
     if (snapshot.exists()) {
       //CHECK IF IT ALREADY EXIST, THROW AN ERROR
       document.getElementById('callback-notification__title').innerHTML = 'Opps!';
-      document.getElementById('callback-notification__description').innerHTML = 'It seems that this book is already in the database.';
+      document.getElementById('callback-notification__description').innerHTML = 'It seems that this book is already in the database. Please check the Book ID and try again';
       document.getElementById('status-image__content').src = '/assets/img/manage-books-assets/error.png';
       document.querySelector('.callback-notification').classList.add('active');
+      document.getElementById('form-book-id').style.backgroundColor = '#ff000040';
       setTimeout(() => {
         document.querySelector('.callback-notification').classList.remove('active');
       }, 3000);
@@ -166,6 +167,7 @@ upload.addEventListener('submit', async (e) => {
           addBookOverlay.style.display = 'none';
           deleteImageBtn.style.display = 'none';
           document.getElementById('add-image-icon').src = '/assets/img/manage-books-assets/add.svg';
+          document.getElementById('form-book-id').style.backgroundColor = '#FFFFFF';
           setTimeout(() => {
             document.querySelector('.callback-notification').classList.remove('active');
           }, 3000);
@@ -177,6 +179,8 @@ upload.addEventListener('submit', async (e) => {
           document.getElementById('callback-notification__description').innerHTML = 'Something went wrong while registering this book.';
           document.getElementById('status-image__content').src = '/assets/img/manage-books-assets/error.png';
           document.querySelector('.callback-notification').classList.add('active');
+          document.getElementById('form-book-id').style.backgroundColor = '#ff000040';
+
           setTimeout(() => {
             document.querySelector('.callback-notification').classList.remove('active');
           }, 3000);
