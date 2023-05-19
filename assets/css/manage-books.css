@@ -149,11 +149,16 @@ td img {
   overflow-y: scroll;
   flex-direction: column;
   color: #ededf6;
-  background-color: #333333;
+  display: none;
+  background-color: #252525;
+}
+.table-content__preview.active{
+  display: block;
 }
 .table-content__preview::-webkit-scrollbar {
   display: none;
 }
+
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .table-content__preview {
@@ -364,7 +369,7 @@ tbody tr:hover {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(#00000000, #33333330, #33333370, #333333);
+  background-image: linear-gradient(#00000000, #25252530, #25252560,#25252590, #252525);
   z-index: 2;
 }
 #book-cover-container img {

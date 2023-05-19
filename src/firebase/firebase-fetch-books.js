@@ -67,6 +67,7 @@ function updateTable(selectedShelf, title) {
 
           // Add click event listener to row
           row.addEventListener('click', () => {
+            document.querySelector('.table-content__preview').classList.add('active')
             const image_container = document.getElementById('book-cover-container');
             image_container.innerHTML = '';
             const image_gradient = document.createElement('div');
