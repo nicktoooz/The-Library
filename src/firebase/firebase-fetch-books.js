@@ -78,7 +78,11 @@ function updateTable(selectedShelf, title) {
             document.getElementById('book-year').innerHTML = details.Year;
             document.getElementById('book-genre').innerHTML = details.Genre;
             document.getElementById('book-shelf').innerHTML = details.Shelf;
-            document.getElementById('book-description').innerHTML = details.Description;
+
+            let description = details.Description.replace(/\u000A/g, '<br>') //New Line
+            description = description.replace(/\u2022/g, '&#149;') //Bullet point
+            
+            document.getElementById('book-description').innerHTML = description;
             document.getElementById('book-language').innerHTML = details.Language;
             document.getElementById('book-publisher').innerHTML = details.Publisher;
             document.getElementById('book-isbn').innerHTML = details.ISBN;
