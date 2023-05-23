@@ -54,7 +54,7 @@ function updateTable(selectedShelf, title) {
           const availabilityCell = document.createElement('td');
           const availabilityImage = document.createElement('img');
 
-          if (details.isAvailable == true) {
+          if (details["Current Copies"] > 0) {
             availabilityImage.src = '/assets/img/manage-books-assets/success.png';
           } else {
             availabilityImage.src = '/assets/img/manage-books-assets/error.png';
@@ -88,7 +88,7 @@ function updateTable(selectedShelf, title) {
             document.getElementById('book-publisher').innerHTML = details.Publisher;
             document.getElementById('book-isbn').innerHTML = details.ISBN;
             document.getElementById('isbn-label').innerHTML = "ISBN: "
-            if (details.isAvailable == true) {
+            if (details["Current Copies"] > 0) {
               document.getElementById('availability-tag').src = '/assets/img/manage-books-assets/available-tag.png'
             } else {
               document.getElementById('availability-tag').src = '/assets/img/manage-books-assets/not-available-tag.png'
